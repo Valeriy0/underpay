@@ -24,7 +24,7 @@ export const BOTTOM_MENU = [
     {
         title: 'Main',
         icon: prefix_bottom + 'main.svg',
-        url: '/'
+        url: '/main'
     },
     {
         title: 'Catalog',

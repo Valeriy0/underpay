@@ -24,7 +24,7 @@ export const List = () => {
       ]
 
     return (
-        <div className="grid grid-cols-2 gap-x-[0.8rem] gap-y-[2.4rem] px-[0.8rem] overflow-y-auto">
+        <div className="grid grid-cols-2 gap-x-[0.8rem] gap-y-[2.4rem] px-[0.8rem] overflow-y-auto invisible-scrollbar">
             {list?.map((item, itemIndex) => {
                 return <Item {...item} key={itemIndex} />
             })}

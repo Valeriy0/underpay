@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const BottomMenu = () => {
     return (
-        <div className="flex-shrink-0 sticky bottom-0 left-0 w-full flex items-start justify-center bg-onBg rounded-t-[3.2rem] h-[9.4rem]">
+        <div className="flex-shrink-0 sticky bottom-0 left-0 w-full flex items-start justify-center bg-onBg rounded-t-[3.2rem] h-fit">
             {BOTTOM_MENU?.map((item, itemIndex) => {
                 const isActive = window.location.pathname.split('/')?.[1] === item?.url.split('/')?.[1];
                 return (

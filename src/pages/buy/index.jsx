@@ -7,7 +7,7 @@ import { Total } from "../../features/Buy/Total";
 
 export const Buy = () => {
     return (
-        <BaseLayout className="pt-[3.2rem] pb-[4.8rem] px-[0.8rem] space-y-[1.6rem] overflow-y-auto">
+        <BaseLayout className="pt-[3.2rem] pb-[4.8rem] px-[0.8rem] space-y-[1.6rem] overflow-y-auto invisible-scrollbar">
             <span className="text-[2.4rem] leading-[3.2rem] font-medium text-white">Оформление покупки</span>
             <ProductInfo />
             <UserInfo />

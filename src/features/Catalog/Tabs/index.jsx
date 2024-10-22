@@ -4,7 +4,7 @@ import { TAB_MENU } from "../../../helpers/menu";
 export const Tabs = () => {
     const [choosed, setChoosed] = useState(TAB_MENU[0]?.title);
     return (
-        <div className="w-full py-[1.6rem] px-[0.8rem] flex items-center justify-start space-x-[0.4rem] overflow-x-auto overflow-y-hidden">
+        <div className="w-full py-[1.6rem] px-[0.8rem] flex items-center justify-start space-x-[0.4rem] overflow-x-auto overflow-y-hidden invisible-scrollbar">
             <button className="flex-shrink-0 h-[4.8rem] px-[2rem] flex items-center justify-center bg-onBg rounded-[3.2rem]">
                 <img className="w-[2.4rem] h-[2.4rem]" src="/icons/search.svg" alt="" />
             </button>

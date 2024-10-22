@@ -14,10 +14,10 @@ export const RoutesFind = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login />} />
       </Routes>
       <Routes>
-        <Route path='/' element={<Main />} />
+        <Route path='/main' element={<Main />} />
       </Routes>
       <Routes>
         <Route path='/catalog' element={<Catalog />} />

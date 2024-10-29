@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Item = ({ img, title, isNew }) => {
 
@@ -10,7 +11,7 @@ export const Item = ({ img, title, isNew }) => {
       } : null;
 
     return (
-        <div className="relative flex-shrink-0 w-[14rem] flex flex-col justify-start h-full">
+        <Link to="/catalog/item" className="relative flex-shrink-0 w-[14rem] flex flex-col justify-start h-full">
             {isNew && (
                 <div className="absolute right-[0.8rem] top-[0.8rem] rounded-[3.2rem] bg-[#0AC300] px-[0.8rem] py-[0.4rem] flex items-center justify-center">
                     <span className="text-white text-[1.2rem] font-medium">New</span>
@@ -24,6 +25,6 @@ export const Item = ({ img, title, isNew }) => {
             <div className="text-left px-[0.8rem]">
                 <span className="text-white text-[1.6rem]">{title}</span>
             </div>
-        </div>
+        </Link>
     )
 }

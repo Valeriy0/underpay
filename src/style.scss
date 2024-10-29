@@ -28,48 +28,18 @@ span {
 
 button, a {
     cursor: pointer;
+    transition: opacity 0.25s ease-out;
     &:disabled {
       opacity: 0.5;
     }
     &:hover {
-      opacity: 0.75;
+      opacity: 0.8;
+    }
+    &:active {
+      opacity: 0.6;
     }
     &:focus {
       outline: none;
     }
   }
 
- 
-  @font-face {
-    font-family: helveticaNeue;
-    src: url(../public/fonts/HelveticaNeue/HelveticaNeueLight.otf);                
-    font-weight: 300;
-  }
-  
-  @font-face {
-    font-family: helveticaNeue;
-    src: url(../public/fonts/HelveticaNeue/HelveticaNeueRegullar.otf);                
-    font-weight: 400;
-  }
-  
-  @font-face {
-    font-family: helveticaNeue;
-    src: url(../public/fonts/HelveticaNeue/HelveticaNeueMedium.otf);                
-    font-weight: 500;
-  }
-  
-  @font-face {
-    font-family: helveticaNeue;
-    src: url(../public/fonts/HelveticaNeue/HelveticaNeueSemiBold.otf);                
-    font-weight: 600;
-  }
-  
-  @font-face {
-    font-family: helveticaNeue;
-    src: url(../public/fonts/HelveticaNeue/HelveticaNeueBold.otf);                
-    font-weight: 700;
-  }
-  
-  .helveticaNeue {
-    font-family: helveticaNeue;
-  }

@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Item } from "./Item";
+import { useRequest } from "../../../helpers/hooks/useRequest";
+import { PopularProductsRepository } from "../../../connectors/repositories/popular-products";
 
 export const PopularList = () => {
+
+    const { call, data } = useRequest(PopularProductsRepository.getPopularProducts);
+    
+    useEffect(() => {
+        call();
+    }, [])
+
+    console.log(data, 'popular')
 
     const titleBg = {
         backgroundImage: `url('/images/main/popular/titleBg.webp')`,

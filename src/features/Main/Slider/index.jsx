@@ -10,8 +10,6 @@ export const Slider = () => {
         call();
     }, [])
 
-    console.log(data);
-
     const banners = useMemo(() => {
         if (data?.data?.banners) {
             return data?.data?.banners;

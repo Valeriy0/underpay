@@ -1,31 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Item } from "./Item";
+import { useRequest } from "../../../helpers/hooks/useRequest";
+import { ProductsRepository } from "../../../connectors/repositories/product";
 
 export const List = () => {
 
-    const list = [
-        {
-            img: '/images/mockImages/popularMainGame.webp',
-            title: 'Arena Breakout: Infinite',
-            isNew: true,
-            topic: '💎 Алмазики',
-        },
-        {
-            img: '',
-            title: 'Arena Breakout: Infinite',
-            isNew: false,
-            topic: '💰 Донаты',
-        },
-        {
-            img: '',
-            title: 'Arena Breakout: Infinite',
-            isNew: false,
-        },
-      ]
+    const { data, call, isLoading } = useRequest(ProductsRepository.getProducts);
+
+    useEffect(() => {
+        call();
+    }, [])
 
     return (
-        <div className="grid grid-cols-2 gap-x-[0.8rem] gap-y-[2.4rem] px-[0.8rem] overflow-y-auto invisible-scrollbar">
-            {list?.map((item, itemIndex) => {
+        <div className="w-full grid grid-cols-2 gap-x-[0.8rem] gap-y-[2.4rem] px-[0.8rem] overflow-y-auto invisible-scrollbar">
+            {!isLoading && data?.data?.map((item, itemIndex) => {
                 return <Item {...item} key={itemIndex} />
             })}
         </div>

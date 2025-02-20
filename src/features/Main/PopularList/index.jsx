@@ -5,13 +5,11 @@ import { PopularProductsRepository } from "../../../connectors/repositories/popu
 
 export const PopularList = () => {
 
-    const { call, data } = useRequest(PopularProductsRepository.getPopularProducts);
+    const { call, data, isLoading } = useRequest(PopularProductsRepository.getPopularProducts, [{page: 0}]);
     
     useEffect(() => {
         call();
     }, [])
-
-    console.log(data, 'popular')
 
     const titleBg = {
         backgroundImage: `url('/images/main/popular/titleBg.webp')`,
@@ -42,8 +40,8 @@ export const PopularList = () => {
             <div style={titleBg} className="flex-shrink-0 w-[14rem] h-full bg-[#3B46F0] rounded-[3.2rem] pt-[2.4rem] pl-[1.2rem]">
                 <span className="text-[1.6rem] font-medium text-white">Пополярное</span>
             </div>
-            {list.map((item, itemIndex) => {
-                return <Item {...item} key={itemIndex} />;
+            {!isLoading && data?.data?.popularProducts.map((item, itemIndex) => {
+                return <Item {...item?.product} key={itemIndex} />;
             })}
         </div>
     )

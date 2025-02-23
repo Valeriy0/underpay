@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Item = ({ mainImageUrl, name, isNew = false, topic }) => {
+export const Item = ({ backgroundImageUrl, name, isNew = false, topic }) => {
 
-    const itemBg = mainImageUrl ? {
-        backgroundImage: `url(${mainImageUrl})`,
+    const itemBg = backgroundImageUrl ? {
+        backgroundImage: `url(${backgroundImageUrl})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -18,7 +18,7 @@ export const Item = ({ mainImageUrl, name, isNew = false, topic }) => {
                 </div>
             )}
             <div style={itemBg} className="mb-[1.2rem] flex-shrink-0 w-full h-[17.5rem] w-full bg-onBg rounded-[3.2rem] flex items-center justify-center">
-                {!mainImageUrl && (
+                {!backgroundImageUrl && (
                     <img className="w-[3rem] h-[3rem]" src="/icons/emptyImage.svg" />
                 )}
             </div>

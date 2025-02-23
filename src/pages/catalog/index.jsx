@@ -7,18 +7,10 @@ import { WithdrawalsRepository } from "../../connectors/repositories/withdrawals
 
 export const Catalog = () => {
 
-    const { call, data, isLoading } = useRequest(WithdrawalsRepository.getProducts)
-
-    useEffect(() => {
-        call([1, {}])
-    }, [])
-
-    console.log(data);
-
     return (
         <BaseLayout withMenu>
             <Tabs />
-            <List data={data} isLoading={isLoading} />
+            <List />
         </BaseLayout>
     )
 }

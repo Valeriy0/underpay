@@ -24,7 +24,7 @@ export const Slider = () => {
                 return (
                     <div id={`banner-${item?.id}`} className="carousel-item w-full" key={itemIndex}>
                         <img
-                        src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                        src={item?.bannerImageUrl}
                         className="w-full" />
                     </div>
                 )

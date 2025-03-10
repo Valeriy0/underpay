@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { TAB_MENU } from "../../../helpers/menu";
 import { Search } from "./SearchComp";
 
-export const Tabs = ({ setChoosedCategoryId, list }) => {
+export const Tabs = ({ setSearchParams, list }) => {
     const [choosed, setChoosed] = useState(TAB_MENU[0]?.title);
     const [isOpenedSearch, setIsOpenedSearch] = useState(false);
 
     const chooseTab = (tab) => {
-        setChoosedCategoryId(tab?.id);
+        setSearchParams((params) => {
+            params.set('categoryId', tab?.id);
+            return params;
+        });
         setChoosed(tab?.name)
     }
 

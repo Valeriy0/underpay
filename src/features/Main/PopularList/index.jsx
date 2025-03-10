@@ -17,24 +17,6 @@ export const PopularList = () => {
         backgroundSize: 'cover',
       };
 
-      const list = [
-        {
-            img: '/images/mockImages/popularMainGame.webp',
-            title: 'Arena Breakout: Infinite',
-            isNew: true,
-        },
-        {
-            img: '',
-            title: 'Arena Breakout: Infinite',
-            isNew: false,
-        },
-        {
-            img: '',
-            title: 'Arena Breakout: Infinite',
-            isNew: false,
-        },
-      ]
-
     return (
         <div className="flex items-center justify-start h-[18.8rem] space-x-[0.8rem] overflow-x-auto overflow-y-hidden invisible-scrollbar">
             <div style={titleBg} className="flex-shrink-0 w-[14rem] h-full bg-[#3B46F0] rounded-[3.2rem] pt-[2.4rem] pl-[1.2rem]">

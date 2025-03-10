@@ -3,9 +3,11 @@ import { BaseLayout } from "../../layouts/BaseLayout";
 import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
+import { initData } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
+    console.log(initData);
 
     // useEffect(() => {
     //     if (initData) {

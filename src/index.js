@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { init, miniApp, retrieveLaunchParams } from '@telegram-apps/sdk';
+import { init, miniApp, initData } from '@telegram-apps/sdk';
 import { isTMA } from '@telegram-apps/bridge';
 
 const initializeTelegramSDK = async () => {
@@ -20,8 +20,7 @@ const initializeTelegramSDK = async () => {
 };
 
 if (await isTMA()) {
-  const { initDataRaw } = retrieveLaunchParams();
-  console.log(1234, initDataRaw);
+  console.log(1234, initData);
 }
 
 initializeTelegramSDK();

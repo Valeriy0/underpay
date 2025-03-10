@@ -7,15 +7,13 @@ import { initData } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
-    console.log(initData.user(), JSON.stringify(initData.user()));
 
     useEffect(() => {
-        if (initData.user()) {
+        if (initData) {
+            console.log(initData.user(), 'initdata ok')
           call([JSON.stringify(initData.user())]);
         }
       }, [initData]);
-
-      console.log(initData.user(), 'init');
     
 
     return (

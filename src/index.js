@@ -6,8 +6,6 @@ import { init, miniApp, retrieveLaunchParams } from '@telegram-apps/sdk';
 
 const { initDataRaw, initData } = retrieveLaunchParams();
 
-console.log(initDataRaw, initData, 'index.js')
-
 const initializeTelegramSDK = async () => {
   try {
     await init();
@@ -15,6 +13,8 @@ const initializeTelegramSDK = async () => {
 
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
+
+      console.log(initDataRaw, initData, 'index.js')
     }
 
 

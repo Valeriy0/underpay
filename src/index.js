@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-import { init, miniApp, initData } from '@telegram-apps/sdk';
-
-console.log(initData);
+import { init, miniApp } from '@telegram-apps/sdk';
 
 const initializeTelegramSDK = async () => {
   try {

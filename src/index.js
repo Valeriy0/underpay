@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-import { init, miniApp, retrieveLaunchParams } from '@telegram-apps/sdk';
-
-const { initDataRaw, initData } = retrieveLaunchParams();
+import { init, miniApp } from '@telegram-apps/sdk';
 
 const initializeTelegramSDK = async () => {
   try {
@@ -13,8 +11,6 @@ const initializeTelegramSDK = async () => {
 
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
-
-      console.log(initDataRaw, initData, 'index.js')
     }
 
 

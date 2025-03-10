@@ -12,10 +12,6 @@ const initializeTelegramSDK = async () => {
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
 
-      if (!miniApp.isExpanded) {
-        miniApp.expand();
-      }
-
       console.log(1234, initDataUser(), initData);
     }
 

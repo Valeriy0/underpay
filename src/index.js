@@ -20,7 +20,7 @@ const initializeTelegramSDK = async () => {
 };
 
 if (await isTMA()) {
-  console.log(1234, initData);
+  console.log(1234, initData.user(), JSON.stringify(initData.user()));
 }
 
 initializeTelegramSDK();

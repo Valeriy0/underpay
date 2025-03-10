@@ -10,7 +10,6 @@ export const Login = () => {
 
     useEffect(() => {
         if (initData) {
-            console.log(initData.user(), 'initdata ok')
           call([JSON.stringify(initData.user())]);
         }
       }, [initData]);

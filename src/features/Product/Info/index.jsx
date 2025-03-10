@@ -1,20 +1,20 @@
 import React from "react";
 
-export const Info = () => {
+export const Info = ({ name, description, productImageUrl, backgroundImageUrl }) => {
 
-    const itemBg = {
-        backgroundImage: `url(/images/mockImages/productBg.png)`,
+    const itemBg = backgroundImageUrl ? {
+        backgroundImage: `url(${backgroundImageUrl})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-      };
+      } : {};
 
-    const itemPhoto = {
-        backgroundImage: `url(/images/mockImages/popularMainGame.webp)`,
+    const itemPhoto = productImageUrl ? {
+        backgroundImage: `url${productImageUrl})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-      };
+      } : {};
 
     return (
         <div className="w-full">
@@ -26,8 +26,8 @@ export const Info = () => {
             </div>
             
             <div className="flex flex-col justify-start items-start space-y-[0.8rem] px-[0.8rem]">
-                <span className="text-[2.4rem] font-medium leading-[3.2rem] text-white">Arena Breakout: Infinite</span>
-                <span className="text-[1.4rem] leading-[140%] text-white-500">Порази своих тимейтов крутыми скинами, или прокати на своей новой Машине, благодаря официальной покупке Юси и доната в Пабг Мобайл!</span>
+                <span className="text-[2.4rem] font-medium leading-[3.2rem] text-white">{name}</span>
+                <span className="text-[1.4rem] leading-[140%] text-white-500">{description}</span>
             </div>
         </div>
     )

@@ -1,11 +1,16 @@
 import React from "react";
 import { Item } from "./Item";
 
-export const List = () => {
+export const List = ({ list }) => {
+    
+    if (!list) {    
+        return null;
+    }
+
     return (
         <div className="px-[0.8rem] flex flex-col w-full">
             <div className="flex flex-col w-full px-[0.8rem] bg-onBg rounded-[3.2rem]">
-                {new Array(3).fill({}).map((item, itemIndex) => {
+                {list.map((item, itemIndex) => {
                     return <Item />
                 })}
             </div>

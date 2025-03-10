@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Item = ({ backgroundImageUrl, name, isNew = false, topic }) => {
+export const Item = ({ id, backgroundImageUrl, name, isNew = false, topic }) => {
 
     const itemBg = backgroundImageUrl ? {
         backgroundImage: `url(${backgroundImageUrl})`,
@@ -11,7 +11,7 @@ export const Item = ({ backgroundImageUrl, name, isNew = false, topic }) => {
       } : null;
 
     return (
-        <Link to='/catalog/item' className="relative flex-shrink-0 w-full flex flex-col justify-start h-full hover:opacity-80">
+        <Link to={`/catalog/${id}`} className="relative flex-shrink-0 w-full flex flex-col justify-start h-full hover:opacity-80">
             {isNew && (
                 <div className="absolute right-[0.8rem] top-[0.8rem] rounded-[3.2rem] bg-[#0AC300] px-[0.8rem] py-[0.4rem] flex items-center justify-center">
                     <span className="text-white text-[1.2rem] font-medium">New</span>

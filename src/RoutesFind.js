@@ -23,7 +23,7 @@ export const RoutesFind = () => {
         <Route path='/catalog' element={<Catalog />} />
       </Routes>
       <Routes>
-        <Route path='/catalog/item' element={<Product />} />
+        <Route path='/catalog/:itemId' element={<Product />} />
       </Routes>
       <Routes>
         <Route path='/cart' element={<Cart />} />

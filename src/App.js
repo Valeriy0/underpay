@@ -1,20 +1,13 @@
 import React from "react";
 import { RoutesFind } from "./RoutesFind";
 import './style.scss';
-import { retrieveLaunchParams } from '@tma.js/sdk';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { useLaunchParams } from "@telegram-apps/sdk-react";
 import { isTMA } from '@telegram-apps/bridge';
+import { initData } from '@telegram-apps/sdk';
 
 
 function App() {
-
-  const launchParams = useLaunchParams();
-
-console.log(123, launchParams);
-
-  const initData = retrieveLaunchParams();
 
   useEffect(() => {
     const sendData = async () => {
@@ -28,7 +21,7 @@ console.log(123, launchParams);
     };
 
     if (initData) {
-      sendData();
+      console.log(initData);
     }
   }, [initData]);
 

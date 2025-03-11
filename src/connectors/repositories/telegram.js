@@ -5,4 +5,4 @@ class Repository extends BaseRepository {
   getTelegramCode = (params) => requestApi('post', `${this.path}/auth`, params);
 }
 
-export const TelegramRepository = new Repository('/telegram');
+export const TelegramRepository = new Repository('/api/telegram');

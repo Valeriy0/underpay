@@ -4,13 +4,30 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import { initData } from '@telegram-apps/sdk';
+import axios from "axios";
 
 export const Login = () => {
-    const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
+    // const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     if (initData) {
+    //       call([JSON.stringify(initData.user())]);
+    //     }
+    //   }, [initData]);
+
+      useEffect(() => {
+        const sendData = async () => {
+          try {
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData.user()));
+    
+            console.log('Response:', response.data);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+    
         if (initData) {
-          call([JSON.stringify(initData.user())]);
+          sendData();
         }
       }, [initData]);
     

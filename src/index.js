@@ -33,7 +33,7 @@ const sendData = async (initData) => {
 
 
 if (await isTMA()) {
-  sendData(initData)
+  sendData(initDataUser())
 }
 
 initializeTelegramSDK();

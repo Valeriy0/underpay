@@ -10,23 +10,26 @@ function App() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    console.log(initData, initData.user);
-    if (initData?.user()) {
-      const user = initData?.user();
-      console.log('user enable')
+    // Получаем данные инициализации
+    const data = initData();
+
+    if (data && data.user) {
+      const user = data.user;
+
+      // Формируем объект userData
       const userData = {
-        id: user?.id?.toString(),
-        first_name: user?.first_name,
-        username: user?.username || '',
-        photo_url: user?.photo_url || '',
-        auth_date: initData?.auth_date()?.toString(),
-        hash: initData?.hash(),
+        id: user.id.toString(),
+        first_name: user.first_name,
+        username: user.username || '', // username может отсутствовать
+        photo_url: user.photo_url || '', // photo_url может отсутствовать
+        auth_date: data.auth_date.toString(), // Дата аутентификации
+        hash: data.hash, // Хеш для проверки данных
       };
 
+      // Устанавливаем данные в состояние
       setUserData(userData);
     }
-
-  }, [initData]);
+  }, []);
 
   console.log(userData);
 

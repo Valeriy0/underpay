@@ -19,17 +19,17 @@ export const Login = () => {
           const userData = {
             id: user.id.toString(),
             first_name: user.first_name,
-            username: user.username || '', // username может отсутствовать
-            photo_url: user.photo_url || '', // photo_url может отсутствовать
-            auth_date: launchParams.auth_date.toString(), // Дата аутентификации
-            hash: launchParams.hash, // Хеш для проверки данных
+            username: user.username || '',
+            photo_url: user.photo_url || '',
+            auth_date: launchParams.auth_date.toString(), 
+            hash: launchParams.hash, 
           };
     
           setUserData(userData);
         }
       }, []);
 
-      console.log(userData);
+      console.log(userData, JSON.stringify(userData));
 
       useEffect(() => {
         const sendData = async () => {

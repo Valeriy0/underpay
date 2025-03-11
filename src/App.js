@@ -3,11 +3,31 @@ import { RoutesFind } from "./RoutesFind";
 import './style.scss';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { isTMA } from '@telegram-apps/bridge';
 import { initData } from '@telegram-apps/sdk';
 
 
 function App() {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    if (initData?.user()) {
+      const user = initData?.user();
+      console.log('user enable')
+      const userData = {
+        id: user.id.toString(),
+        first_name: user.first_name,
+        username: user.username || '',
+        photo_url: user.photo_url || '',
+        auth_date: initData.auth_date().toString(),
+        hash: initData.hash(),
+      };
+
+      setUserData(userData);
+    }
+
+  }, [initData]);
+
+  console.log(initData, userData);
 
   useEffect(() => {
     const sendData = async () => {
@@ -21,7 +41,7 @@ function App() {
     };
 
     if (initData) {
-      console.log(initData);
+      sendData();
     }
   }, [initData]);
 

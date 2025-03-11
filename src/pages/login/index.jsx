@@ -11,7 +11,7 @@ export const Login = () => {
 
     useEffect(() => {
         // Получаем данные запуска
-        const launchParams = retrieveLaunchParams();
+        const launchParams = retrieveLaunchParams().tgWebAppData;
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {

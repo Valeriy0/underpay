@@ -12,6 +12,7 @@ const initializeTelegramSDK = async () => {
 
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
+      sendData(initDataUser())
     }
 
 
@@ -30,11 +31,6 @@ const sendData = async (initData) => {
     console.error('Error:', error);
   }
 };
-
-
-if (await isTMA()) {
-  sendData(initDataUser())
-}
 
 initializeTelegramSDK();
 

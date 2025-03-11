@@ -12,11 +12,6 @@ const initializeTelegramSDK = async () => {
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
 
-      miniApp.BackButton.show();
-      miniApp.BackButton.onClick(() => {
-        miniApp.close();
-        });
-
       console.log(1234, initDataUser(), initData);
     }
 

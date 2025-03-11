@@ -3,53 +3,25 @@ import { BaseLayout } from "../../layouts/BaseLayout";
 import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
-// import { initData } from '@telegram-apps/sdk';
 import axios from "axios";
-import { initData } from '@telegram-apps/sdk';
 
 export const Login = () => {
-   const [userData, setUserData] = useState(null);
- 
-   useEffect(() => {
-     // Получаем данные инициализации
-     const data = initData();
- 
-     if (data && data.user) {
-       const user = data.user;
- 
-       // Формируем объект userData
-       const userData = {
-         id: user.id.toString(),
-         first_name: user.first_name,
-         username: user.username || '', // username может отсутствовать
-         photo_url: user.photo_url || '', // photo_url может отсутствовать
-         auth_date: data.auth_date.toString(), // Дата аутентификации
-         hash: data.hash, // Хеш для проверки данных
-       };
- 
-       // Устанавливаем данные в состояние
-       setUserData(userData);
-     }
-   }, []);
- 
-   console.log(userData);
- 
 
-      useEffect(() => {
-        const sendData = async () => {
-          try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData).tgWebAppData?.user);
+    //   useEffect(() => {
+    //     const sendData = async () => {
+    //       try {
+    //         const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData).tgWebAppData?.user);
     
-            console.log('Response:', response.data);
-          } catch (error) {
-            console.error('Error:', error);
-          }
-        };
+    //         console.log('Response:', response.data);
+    //       } catch (error) {
+    //         console.error('Error:', error);
+    //       }
+    //     };
     
-        if (initData) {
-          sendData();
-        }
-      }, [initData]);
+    //     if (initData) {
+    //       sendData();
+    //     }
+    //   }, [initData]);
     
 
     return (

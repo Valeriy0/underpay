@@ -10,6 +10,7 @@ function App() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
+    console.log(initData);
     if (initData?.user()) {
       const user = initData?.user();
       console.log('user enable')

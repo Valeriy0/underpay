@@ -4,8 +4,34 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
 
 export const Login = () => {
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        // Получаем данные запуска
+        const launchParams = retrieveLaunchParams();
+    
+        if (launchParams && launchParams.user) {
+          const user = launchParams.user;
+    
+          // Формируем объект userData
+          const userData = {
+            id: user.id.toString(),
+            first_name: user.first_name,
+            username: user.username || '', // username может отсутствовать
+            photo_url: user.photo_url || '', // photo_url может отсутствовать
+            auth_date: launchParams.auth_date.toString(), // Дата аутентификации
+            hash: launchParams.hash, // Хеш для проверки данных
+          };
+    
+          // Устанавливаем данные в состояние
+          setUserData(userData);
+        }
+      }, []);
+
+      console.log(userData);
 
     //   useEffect(() => {
     //     const sendData = async () => {

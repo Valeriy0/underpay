@@ -10,14 +10,12 @@ export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        // Получаем данные запуска
         const launchParams = retrieveLaunchParams().tgWebAppData;
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {
           const user = launchParams.user;
     
-          // Формируем объект userData
           const userData = {
             id: user.id.toString(),
             first_name: user.first_name,
@@ -27,28 +25,27 @@ export const Login = () => {
             hash: launchParams.hash, // Хеш для проверки данных
           };
     
-          // Устанавливаем данные в состояние
           setUserData(userData);
         }
       }, []);
 
       console.log(userData);
 
-    //   useEffect(() => {
-    //     const sendData = async () => {
-    //       try {
-    //         const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData).tgWebAppData?.user);
+      useEffect(() => {
+        const sendData = async () => {
+          try {
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(userData));
     
-    //         console.log('Response:', response.data);
-    //       } catch (error) {
-    //         console.error('Error:', error);
-    //       }
-    //     };
+            console.log('Response:', response.data);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
     
-    //     if (initData) {
-    //       sendData();
-    //     }
-    //   }, [initData]);
+        if (userData) {
+          sendData();
+        }
+      }, [userData]);
     
 
     return (

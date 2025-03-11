@@ -5,6 +5,7 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams } from '@telegram-apps/sdk';
+import { getUnixTime } from "date-fns";
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
@@ -21,7 +22,7 @@ export const Login = () => {
             first_name: user.first_name,
             username: user.username || '',
             photo_url: user.photo_url || '',
-            auth_date: launchParams.auth_date.toString(), 
+            auth_date: getUnixTime(launchParams.auth_date), 
             hash: launchParams.hash, 
           };
     

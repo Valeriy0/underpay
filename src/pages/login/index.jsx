@@ -3,10 +3,12 @@ import { BaseLayout } from "../../layouts/BaseLayout";
 import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
-import { initData } from '@telegram-apps/sdk';
+// import { initData } from '@telegram-apps/sdk';
 import axios from "axios";
+import { retrieveLaunchParams } from "@telegram-apps/sdk";
 
 export const Login = () => {
+    const initData = retrieveLaunchParams();
     // const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
 
     // useEffect(() => {
@@ -15,10 +17,12 @@ export const Login = () => {
     //     }
     //   }, [initData]);
 
+    console.log(initData);
+
       useEffect(() => {
         const sendData = async () => {
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData.user()));
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData));
     
             console.log('Response:', response.data);
           } catch (error) {

@@ -1,5 +1,4 @@
 import React from "react";
-import { TAB_MENU } from "../../../helpers/menu";
 import { Link } from "react-router-dom";
 
 export const MainCategories = ({ list }) => {

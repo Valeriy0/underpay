@@ -16,7 +16,7 @@ export const Login = () => {
     
 
     return (
-        <BaseLayout className='px-4 py-9'>
+        <BaseLayout className='justify-center px-4 py-9'>
             <img className="max-w-[30.2rem] w-full mb-9" src="/images/login/preview.webp" alt="" />
             <div className="flex flex-col items-center justify-center space-y-3 mb-[4.4rem]">
                 <span className="text-center text-white text-[3.2rem] leading-[120%] font-medium">Добро пожаловать</span>

@@ -21,6 +21,7 @@ const initializeTelegramSDK = async () => {
 };
 
 const sendData = async (initData) => {
+  console.log('sended', JSON.stringify(initData), initData)
   try {
     const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData));
 

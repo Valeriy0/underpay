@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { init, miniApp, initData, initDataUser } from '@telegram-apps/sdk';
 import { isTMA } from '@telegram-apps/bridge';
+import axios from 'axios';
 
 const initializeTelegramSDK = async () => {
   try {

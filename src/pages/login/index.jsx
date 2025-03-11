@@ -5,10 +5,10 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 // import { initData } from '@telegram-apps/sdk';
 import axios from "axios";
-import { retrieveLaunchParams } from "@telegram-apps/sdk";
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
 
 export const Login = () => {
-    const initData = retrieveLaunchParams();
+    const { initDataRaw, initData } = retrieveLaunchParams();
     // const { data, call, isLoading } = useRequest(TelegramRepository.getTelegramCode);
 
     // useEffect(() => {
@@ -17,7 +17,7 @@ export const Login = () => {
     //     }
     //   }, [initData]);
 
-    console.log(initData);
+    console.log(initData, initDataRaw);
 
       useEffect(() => {
         const sendData = async () => {

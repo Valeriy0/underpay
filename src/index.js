@@ -11,8 +11,6 @@ const initializeTelegramSDK = async () => {
 
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
-
-      console.log(1234, initDataUser(), initData);
     }
 
 
@@ -21,8 +19,19 @@ const initializeTelegramSDK = async () => {
   }
 };
 
+const sendData = async (initData) => {
+  try {
+    const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData));
+
+    console.log('Response:', response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+
 if (await isTMA()) {
-  console.log(1234, initDataUser(), initData);
+  sendData(initData)
 }
 
 initializeTelegramSDK();

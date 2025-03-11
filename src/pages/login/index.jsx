@@ -22,7 +22,7 @@ export const Login = () => {
       useEffect(() => {
         const sendData = async () => {
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData));
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/telegram/auth', JSON.stringify(initData).tgWebAppData?.user);
     
             console.log('Response:', response.data);
           } catch (error) {

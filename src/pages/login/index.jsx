@@ -11,15 +11,14 @@ export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
+      console.log(initData.raw());
+    }, [initData])
+
+    useEffect(() => {
 
       if (miniAppReady.isAvailable()) {
         const launchParams = retrieveLaunchParams();
         console.log(launchParams, 1234);
-
-        if (initData) {
-          console.log(initData.raw());
-        }
-        
     
           setUserData({
             initData: launchParams.tgWebAppData, 

@@ -5,7 +5,6 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams, miniAppReady, initDataRaw } from '@telegram-apps/sdk';
-import { miniAppReady } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);

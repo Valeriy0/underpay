@@ -11,8 +11,11 @@ export const Login = () => {
 
     const [initDataRaw, setInitDataRaw] = useState(null);
 
+    console.log(window);
+
     useEffect(() => {
         // Check if Telegram WebApp is available
+       
         if (window.Telegram && window.Telegram.WebApp) {
             // Access initDataUnsafe
             const rawData = window.Telegram.WebApp.initDataUnsafe;

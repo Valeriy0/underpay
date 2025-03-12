@@ -12,7 +12,7 @@ export const Login = () => {
     const initData = retrieveLaunchParams();    
 
     useEffect(() => {
-      setUserData(JSON.stringify(initData));       
+      setUserData(initData);       
     }, [initData]);
 
       console.log(userData);

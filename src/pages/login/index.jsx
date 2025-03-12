@@ -4,26 +4,19 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams, initData, initDataRaw } from '@telegram-apps/sdk';
-import { parseInitDataQuery } from "@telegram-apps/sdk";
+import { retrieveLaunchParams } from '@tma.js/sdk';
 import { getUnixTime } from "date-fns";
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const data = retrieveLaunchParams();
-        console.log(data);
-
-        const initData2 = parseInitDataQuery(initData.raw());
-
-        console.log(initData2, initDataRaw)
-
+        const launchParams = retrieveLaunchParams();
+        console.log(launchParams, 1234);
     
-        // setUserData({
-        //   initData,
-        //   initDataRaw
-        // });
+        if (launchParams && launchParams.user) {
+          setUserData(launchParams);
+        }
       }, []);
 
       console.log(userData);

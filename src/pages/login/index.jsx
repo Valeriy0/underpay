@@ -5,14 +5,27 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
-import { initData, useSignal } from '@telegram-apps/sdk-react';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
-    const raw = useSignal(initData.raw);
+
+    const [initDataRaw, setInitDataRaw] = useState(null);
+
     useEffect(() => {
-      console.log(window.Telegram.WebApp);
-    }, [])
+        // Check if Telegram WebApp is available
+        if (window.Telegram && window.Telegram.WebApp) {
+            // Access initDataUnsafe
+            const rawData = window.Telegram.WebApp.initDataUnsafe;
+            setInitDataRaw(rawData);
+
+            // Log the raw data (for debugging)
+            console.log('initDataUnsafe:', rawData);
+        } else {
+            console.error('Telegram WebApp is not available');
+        }
+    }, []);
+
+    console.log(initDataRaw)
 
     useEffect(() => {
 

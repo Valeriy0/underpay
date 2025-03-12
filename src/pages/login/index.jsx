@@ -10,13 +10,21 @@ export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     const initData = retrieveLaunchParams();   
-    
-    console.log(initData, JSON.stringify(initData, null, 2), JSON.stringify(initData, null, 2));
 
       useEffect(() => {
         const sendData = async () => {
+
+          const replacer = (key, value) => {
+            if (key === 'initDataRaw') {
+                return value;
+            }
+            return value;
+          };
+
+          const jsonString = JSON.stringify(initData, replacer, 2);
+
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData, null, 2));
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', jsonString);
     
             console.log('Response:', response.data);
           } catch (error) {

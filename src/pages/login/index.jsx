@@ -4,23 +4,27 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams } from '@telegram-apps/sdk';
+import { retrieveLaunchParams, miniAppReady, initDataRaw } from '@telegram-apps/sdk';
+import { miniAppReady } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
+      if (miniAppReady.isAvailable()) {
         const launchParams = retrieveLaunchParams();
         console.log(launchParams, 1234);
     
           setUserData({
             initData: launchParams.tgWebAppData, 
-            initDataRaw: JSON.stringify(launchParams.tgWebAppData),
+            initDataRaw: initDataRaw(),
             platform: launchParams.tgWebAppPlatform,
             themeParams: launchParams.tgWebAppThemeParams,
             version: launchParams.tgWebAppVersion
           });
-      }, []);
+      }
+       
+      }, [miniAppReady]);
 
       console.log(userData);
 

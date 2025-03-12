@@ -11,13 +11,13 @@ export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const { initDataRaw, initData } = retrieveLaunchParams();
-        console.log(initDataRaw, initData);
+        const data = retrieveLaunchParams();
+        console.log(data);
     
-        setUserData({
-          initData,
-          initDataRaw
-        });
+        // setUserData({
+        //   initData,
+        //   initDataRaw
+        // });
       }, []);
 
       console.log(userData);

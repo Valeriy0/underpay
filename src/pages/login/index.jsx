@@ -4,10 +4,22 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams, miniAppReady, initDataRaw } from '@telegram-apps/sdk';
+import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
+
+    const parseInitData = (initData) => {
+      const params = new URLSearchParams(initData);
+      return {
+          user: JSON.parse(params.get('user')),
+          hash: params.get('hash'),
+          auth_date: params.get('auth_date'),
+          start_param: params.get('signature'),
+          chat_type: params.get('chat_type'),
+          chat_instance: params.get('chat_instance'),
+      };
+    }
 
     useEffect(() => {
       if (miniAppReady.isAvailable()) {
@@ -16,7 +28,7 @@ export const Login = () => {
     
           setUserData({
             initData: launchParams.tgWebAppData, 
-            initDataRaw: initDataRaw(),
+            initDataRaw: parseInitData(launchParams.tgWebAppData),
             platform: launchParams.tgWebAppPlatform,
             themeParams: launchParams.tgWebAppThemeParams,
             version: launchParams.tgWebAppVersion

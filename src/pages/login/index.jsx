@@ -16,7 +16,7 @@ export const Login = () => {
         const launchParams = retrieveLaunchParams();
         console.log(launchParams, 1234);
 
-        console.log(initData);
+        console.log(initData.raw());
     
           setUserData({
             initData: launchParams.tgWebAppData, 

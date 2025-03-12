@@ -4,14 +4,10 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams, miniAppReady, WebApp } from '@telegram-apps/sdk';
+import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
 import { initData } from '@telegram-apps/sdk-react';
 
 export const Login = () => {
-    const webApp = new WebApp();
-
-    console.log(webApp);
-
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {

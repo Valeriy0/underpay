@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams } from '@tma.js/sdk';
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);

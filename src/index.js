@@ -11,6 +11,7 @@ const initializeTelegramSDK = async () => {
 
     if (miniApp.ready.isAvailable()) {
       await miniApp.ready();
+      console.log(initData, initData.raw());
     }
 
 

@@ -9,26 +9,24 @@ import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
-    const parseInitData = (initData) => {
-      const params = new URLSearchParams(initData);
-      return {
-          user: JSON.parse(params.get('user')),
-          hash: params.get('hash'),
-          auth_date: params.get('auth_date'),
-          start_param: params.get('signature'),
-          chat_type: params.get('chat_type'),
-          chat_instance: params.get('chat_instance'),
-      };
-    }
-
     useEffect(() => {
+
+      if (window.Telegram && window.Telegram.WebApp) {
+            const initDataRaw = window.Telegram.WebApp.initData;
+            console.log('initDataRaw:', initDataRaw);
+        
+            // Вы можете использовать initDataRaw для дальнейшей обработки
+        } else {
+            console.error('Telegram.WebApp is not available');
+        }
+
       if (miniAppReady.isAvailable()) {
         const launchParams = retrieveLaunchParams();
         console.log(launchParams, 1234);
     
           setUserData({
             initData: launchParams.tgWebAppData, 
-            initDataRaw: parseInitData(launchParams.tgWebAppData),
+            initDataRaw: launchParams.tgWebAppData,
             platform: launchParams.tgWebAppPlatform,
             themeParams: launchParams.tgWebAppThemeParams,
             version: launchParams.tgWebAppVersion

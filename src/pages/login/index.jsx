@@ -9,7 +9,9 @@ import { retrieveLaunchParams } from '@tma.js/sdk';
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
-    const initData = retrieveLaunchParams();    
+    const initData = retrieveLaunchParams();   
+    
+    console.log(initData);
 
       useEffect(() => {
         const sendData = async () => {

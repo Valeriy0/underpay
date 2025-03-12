@@ -5,7 +5,6 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams } from '@tma.js/sdk';
-import { getUnixTime } from "date-fns";
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);

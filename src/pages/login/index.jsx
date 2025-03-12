@@ -4,48 +4,16 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
+import { retrieveLaunchParams } from '@tma.js/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
-    const [initDataRaw, setInitDataRaw] = useState(null);
-
-    console.log(window);
+    const initData = retrieveLaunchParams();    
 
     useEffect(() => {
-        // Check if Telegram WebApp is available
-       
-        if (window.Telegram && window.Telegram.WebApp) {
-            // Access initDataUnsafe
-            const rawData = window.Telegram.WebApp.initDataUnsafe;
-            setInitDataRaw(rawData);
-
-            // Log the raw data (for debugging)
-            console.log('initDataUnsafe:', rawData);
-        } else {
-            console.error('Telegram WebApp is not available');
-        }
-    }, []);
-
-    console.log(initDataRaw)
-
-    useEffect(() => {
-
-      if (miniAppReady.isAvailable()) {
-        const launchParams = retrieveLaunchParams();
-        console.log(launchParams, 1234);
-    
-          setUserData({
-            initData: launchParams.tgWebAppData, 
-            initDataRaw: launchParams.tgWebAppData,
-            platform: launchParams.tgWebAppPlatform,
-            themeParams: launchParams.tgWebAppThemeParams,
-            version: launchParams.tgWebAppVersion
-          });
-      }
-       
-      }, [miniAppReady]);
+      setUserData(JSON.stringify(initData));       
+    }, [initData]);
 
       console.log(userData);
 

@@ -1,32 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { init, miniApp } from '@telegram-apps/sdk';
+import { initWeb, useInitData, SDKProvider } from "@tma.js/sdk-react";
 
-
-const initializeTelegramSDK = async () => {
-  try {
-    await init();
-
-
-    if (miniApp.ready.isAvailable()) {
-      await miniApp.ready();
-      console.log(miniApp);
-    }
-
-
-  } catch (error) {
-    console.error('Ошибка инициализации:', error);
-  }
-};
-
-
-initializeTelegramSDK();
+initWeb();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <SDKProvider>
+      <App />
+    </SDKProvider>
   </React.StrictMode>
 );
 

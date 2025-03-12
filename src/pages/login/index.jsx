@@ -13,15 +13,13 @@ export const Login = () => {
         const launchParams = retrieveLaunchParams();
         console.log(launchParams, 1234);
     
-        if (launchParams && launchParams.user) {
           setUserData({
             initData: launchParams.tgWebAppData, 
             initDataRaw: JSON.stringify(launchParams.tgWebAppData),
           });
-        }
       }, []);
 
-      console.log(userData, JSON.stringify(userData));
+      console.log(userData);
 
       useEffect(() => {
         const sendData = async () => {

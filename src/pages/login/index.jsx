@@ -15,22 +15,11 @@ export const Login = () => {
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {
-          const user = launchParams.user;
-    
-          const userData = {
-            id: user.id.toString(),
-            first_name: user.first_name,
-            username: user.username || '',
-            photo_url: user.photo_url || '',
-            auth_date: getUnixTime(launchParams.auth_date).toString(), 
-            hash: launchParams.hash, 
-          };
-    
-          setUserData(userData);
+          setUserData(JSON.stringify(launchParams));
         }
       }, []);
 
-      console.log(userData, JSON.stringify(userData));
+      console.log(userData);
 
       useEffect(() => {
         const sendData = async () => {

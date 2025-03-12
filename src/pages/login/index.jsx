@@ -16,6 +16,9 @@ export const Login = () => {
           setUserData({
             initData: launchParams.tgWebAppData, 
             initDataRaw: JSON.stringify(launchParams.tgWebAppData),
+            platform: launchParams.tgWebAppPlatform,
+            themeParams: launchParams.tgWebAppThemeParams,
+            version: launchParams.tgWebAppVersion
           });
       }, []);
 

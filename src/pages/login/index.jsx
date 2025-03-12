@@ -14,7 +14,7 @@ export const Login = () => {
       useEffect(() => {
         const sendData = async () => {
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', initData);
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData));
     
             console.log('Response:', response.data);
           } catch (error) {

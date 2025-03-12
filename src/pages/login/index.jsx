@@ -11,6 +11,8 @@ export const Login = () => {
 
     useEffect(() => {
         const launchParams = retrieveLaunchParams();
+        const { initDataRaw } = retrieveLaunchParams();
+        console.log(222, initDataRaw);
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {

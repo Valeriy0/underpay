@@ -11,7 +11,7 @@ export const Login = () => {
 
     const initData = retrieveLaunchParams();   
     
-    console.log(initData);
+    console.log(initData, JSON.stringify(initData, null, 2), JSON.parse(initData));
 
       useEffect(() => {
         const sendData = async () => {

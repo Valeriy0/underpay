@@ -11,16 +11,10 @@ export const Login = () => {
 
     const initData = retrieveLaunchParams();    
 
-    useEffect(() => {
-      setUserData(initData);       
-    }, [initData]);
-
-      console.log(userData);
-
       useEffect(() => {
         const sendData = async () => {
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', userData);
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', initData);
     
             console.log('Response:', response.data);
           } catch (error) {
@@ -28,10 +22,10 @@ export const Login = () => {
           }
         };
     
-        if (userData) {
+        if (initData) {
           sendData();
         }
-      }, [userData]);
+      }, [initData]);
     
 
     return (

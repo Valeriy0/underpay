@@ -15,7 +15,7 @@ export const Login = () => {
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {
-          setUserData(JSON.stringify(launchParams));
+          setUserData(launchParams);
         }
       }, []);
 

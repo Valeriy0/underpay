@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
-import { retrieveLaunchParams, initData } from '@telegram-apps/sdk';
+import { retrieveLaunchParams, initDataRaw } from '@telegram-apps/sdk';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         const launchParams = retrieveLaunchParams();
-        const initDataRaw  = initData.raw();
-        console.log(222, initDataRaw);
+        const initDatar  = initDataRaw();
+        console.log(222, initDatar);
         console.log(launchParams, 1234);
     
         if (launchParams && launchParams.user) {

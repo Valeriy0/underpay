@@ -11,8 +11,8 @@ export const Login = () => {
     const [userData, setUserData] = useState(null);
     const raw = useSignal(initData.raw);
     useEffect(() => {
-      console.log(raw);
-    }, [raw])
+      console.log(window.Telegram.WebApp);
+    }, [])
 
     useEffect(() => {
 

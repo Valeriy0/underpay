@@ -5,14 +5,14 @@ import { useRequest } from "../../helpers/hooks/useRequest";
 import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams, miniAppReady } from '@telegram-apps/sdk';
-import { initData } from '@telegram-apps/sdk-react';
+import { initData, useSignal } from '@telegram-apps/sdk-react';
 
 export const Login = () => {
     const [userData, setUserData] = useState(null);
-
+    const raw = useSignal(initData.raw);
     useEffect(() => {
-      console.log(initData.raw());
-    }, [initData])
+      console.log(raw);
+    }, [raw])
 
     useEffect(() => {
 

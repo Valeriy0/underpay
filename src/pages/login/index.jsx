@@ -24,7 +24,7 @@ export const Login = () => {
           const jsonString = JSON.stringify(initData, replacer, 2);
 
           try {
-            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', initData, {
+            const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData), {
               headers: {
                 'Content-Type': 'application/json'
               }

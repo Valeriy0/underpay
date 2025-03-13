@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { BaseLayout } from "../../layouts/BaseLayout";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import { retrieveLaunchParams } from '@tma.js/sdk';
 import { setCookie } from "nookies";
 import { useRequest } from "../../helpers/hooks/useRequest";
@@ -21,10 +19,11 @@ export const Login = () => {
 
   useEffect(() => {
     if (data) {
-      setCookie(null, 'apiToken', data.data.jwtToken, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: '/',
-      })
+      console.log(data);
+      // setCookie(null, 'apiToken', data.data.jwtToken, {
+      //   maxAge: 30 * 24 * 60 * 60,
+      //   path: '/',
+      // })
       navigate('/main');
     }
   })

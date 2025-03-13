@@ -14,7 +14,7 @@ export const Login = () => {
       if (initData) {
         try {
           setIsLoading(true);
-          const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', {
+          const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData), {
             headers: {
               'Content-Type': 'application/json'
             }

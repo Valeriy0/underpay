@@ -24,7 +24,7 @@ export const Login = () => {
       //   maxAge: 30 * 24 * 60 * 60,
       //   path: '/',
       // })
-      navigate('/main');
+      // navigate('/main');
     }
   })
   

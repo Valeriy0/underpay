@@ -19,8 +19,10 @@ export const Login = () => {
               }
             });
 
+            console.log(response.data);
+
             if (response.data) {
-              setCookie(null, 'apiToken', response.data.jwtToken, {
+              setCookie(null, 'apiToken', response.data.data.jwtToken, {
                 maxAge: 30 * 24 * 60 * 60,
                 path: '/',
               })

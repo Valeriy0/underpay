@@ -1,36 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BaseLayout } from "../../layouts/BaseLayout";
 import { Link } from "react-router-dom";
-import { useRequest } from "../../helpers/hooks/useRequest";
-import { TelegramRepository } from "../../connectors/repositories/telegram";
 import axios from "axios";
 import { retrieveLaunchParams } from '@tma.js/sdk';
+import { setCookie } from "nookies";
 
 export const Login = () => {
-    const [userData, setUserData] = useState(null);
 
     const initData = retrieveLaunchParams();   
 
       useEffect(() => {
         const sendData = async () => {
-
-          const replacer = (key, value) => {
-            if (key === 'initDataRaw') {
-                return value;
-            }
-            return value;
-          };
-
-          const jsonString = JSON.stringify(initData, replacer, 2);
-
+  
           try {
             const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData), {
               headers: {
                 'Content-Type': 'application/json'
               }
             });
-    
-            console.log('Response:', response.data);
+
+            if (response.data) {
+              setCookie(null, 'apiToken', response.data.jwtToken, {
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/',
+              })
+            }
           } catch (error) {
             console.error('Error:', error);
           }

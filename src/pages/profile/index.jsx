@@ -17,8 +17,9 @@ export const Profile = () => {
 
     return (
         <BaseLayout withMenu className="px-[1.6rem]">
+            {data?.data?.user?.balanceUsd}
             <Info />
-            <Balance balance={data?.data?.user?.balanceUsd} />
+            <Balance balance={data?.data?.user?.balanceUsd || 0} />
             <Menu />
         </BaseLayout>
     )

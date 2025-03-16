@@ -20,6 +20,7 @@ export const Slider = () => {
                     <div id={`banner-${item?.id}`} className="carousel-item w-full" key={itemIndex}>
                         <img
                         src={item?.bannerImageUrl}
+                        alt={item?.bannerAltText || ""}
                         className="w-full" />
                     </div>
                 )

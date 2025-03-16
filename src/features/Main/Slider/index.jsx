@@ -10,6 +10,8 @@ export const Slider = () => {
         call();
     }, [])
 
+    console.log(data?.data?.banners)
+
     return (
         <div className="relative h-[32rem] w-full bg-onBg rounded-b-[3.2rem] overflow-hidden">
         <div className="carousel w-full h-full">

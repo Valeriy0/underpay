@@ -13,7 +13,7 @@ export const Profile = () => {
         call();
     }, [])
 
-    console.log(data)
+    console.log(data?.data, data?.data?.user)
 
     return (
         <BaseLayout withMenu className="px-[1.6rem]">

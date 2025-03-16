@@ -11,7 +11,7 @@ export const List = ({ list }) => {
         <div className="px-[0.8rem] flex flex-col w-full">
             <div className="flex flex-col w-full px-[0.8rem] bg-onBg rounded-[3.2rem]">
                 {list.map((item, itemIndex) => {
-                    return <Item />
+                    return <Item {...item} key={itemIndex} />
                 })}
             </div>
         </div>

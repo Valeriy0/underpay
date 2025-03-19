@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BaseLayout } from "../../layouts/BaseLayout";
 import axios from "axios";
-import { retrieveLaunchParams } from '@tma.js/sdk';
+import { retrieveLaunchParams, isTMA } from '@tma.js/sdk';
 import { setCookie } from "nookies";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
-   const initData = retrieveLaunchParams();  
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get('token')) {
+      setCookie(null, 'apiToken', searchParams.get('token'), {
+        maxAge: 30 * 24 * 60 * 60
+      });
+      setSearchParams({});
+      navigate('/main');
+    }
+  }, [searchParams])
     
     const onAuth = async () => {
-      if (initData) {
+      if (await isTMA()) {
+        const initData = retrieveLaunchParams();  
         try {
           setIsLoading(true);
           const response = await axios.post('https://gogt1tcrfq.loclx.io/api/telegram/auth', JSON.stringify(initData), {

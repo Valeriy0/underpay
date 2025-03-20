@@ -17,8 +17,6 @@ export const Product = () => {
         }
     }, [itemId])
 
-    console.log(data);
-
     return (
         <BaseLayout className='space-y-[2rem]'>
             <Info {...data?.data} />

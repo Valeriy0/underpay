@@ -13,11 +13,9 @@ export const Profile = () => {
         call();
     }, [])
 
-    console.log(data?.data, data?.data?.user)
-
     return (
         <BaseLayout withMenu className="px-[1.6rem]">
-            <Info />
+            <Info {...data?.data?.user?.telegramAccount} />
             <Balance balance={data?.data?.user?.balanceUsd || 0} />
             <Menu />
         </BaseLayout>

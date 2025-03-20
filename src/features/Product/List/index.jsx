@@ -7,6 +7,8 @@ export const List = ({ list }) => {
         return null;
     }
 
+    console.log(list);
+
     return (
         <div className="px-[0.8rem] flex flex-col w-full">
             <div className="flex flex-col w-full px-[0.8rem] bg-onBg rounded-[3.2rem]">

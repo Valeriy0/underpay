@@ -1,9 +1,14 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 
-export const ProductInfo = () => {
+export const ProductInfo = ({ data = {} }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const itemId = searchParams.get('itemId');
+    const currentItem = data?.mooGoldItems?.find(item => Number(item.productId) === Number(itemId)) || {};
 
     const productBg = {
-        backgroundImage: `url(/images/mockImages/popularMainGame.webp)`,
+        backgroundImage: `url(${data?.productImageUrl})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -17,8 +22,8 @@ export const ProductInfo = () => {
                         </div>
                         
                         <div className="flex flex-col items-start justify-center space-y-[0.4rem]">
-                            <span className="text-white text-[1.6rem] font-medium">Arena Breakout: Infinite</span>
-                            <span className="text-white-500 text-[1.6rem]">Продукт</span>
+                            <span className="text-white text-[1.6rem] font-medium">{data?.name}</span>
+                            <span className="text-white-500 text-[1.6rem]">{data?.category?.name}</span>
                         </div>
                     </div>
                 </div>
@@ -29,12 +34,12 @@ export const ProductInfo = () => {
                         </div>
                         
                         <div className="flex flex-col items-start justify-center space-y-[0.4rem]">
-                            <span className="text-white text-[1.6rem] font-medium">Elite Pass Plus A9</span>
+                            <span className="text-white text-[1.6rem] font-medium">{currentItem?.name}</span>
                             <span className="text-white-500 text-[1.6rem]">Продукт</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-end space-x-[0.4rem]">
-                        <span className="text-white-500 text-[1.6rem]">3700 ₽</span>
+                        <span className="text-white-500 text-[1.6rem]">{currentItem?.priceUsd}$</span>
                     </div>
                 </div>
             </div>

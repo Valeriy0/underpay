@@ -27,7 +27,7 @@ export const Login = () => {
         const initData = retrieveLaunchParams();  
         try {
           setIsLoading(true);
-          const response = await axios.post(config.apiUrl + '/telegram/auth', JSON.stringify(initData), {
+          const response = await axios.post(config.apiUrl + 'telegram/auth', JSON.stringify(initData), {
             headers: {
               'Content-Type': 'application/json'
             }

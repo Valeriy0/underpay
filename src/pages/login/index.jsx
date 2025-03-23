@@ -27,7 +27,7 @@ export const Login = () => {
         const initData = retrieveLaunchParams();  
         try {
           setIsLoading(true);
-          const response = await axios.post(config.apiUrl + 'telegram/auth', JSON.stringify(initData));
+          const response = await axios.post('https://wi0bbzhfzm.eu.loclx.io/api/telegram/auth', JSON.stringify(initData));
 
           if (response.data) {
             setCookie(null, 'apiToken', response.data.data.jwtToken, {

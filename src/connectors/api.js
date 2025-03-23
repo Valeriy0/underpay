@@ -2,14 +2,6 @@ import axios from 'axios';
 import Qs from 'qs';
 import { destroyCookie, parseCookies } from 'nookies';
 import config from '../helpers/config';
-import { createProxyMiddleware } from 'http-proxy-middleware';
-
-// Set up proxy middleware
-const proxy = createProxyMiddleware({
-  target: config.apiUrl,
-  changeOrigin: true,
-  secure: false, // Disable SSL verification if needed
-});
 
 //for interceptors etc.
 
@@ -86,9 +78,4 @@ export const requestApi = async (method, url, data, multipart = false, isFilesAr
   } catch (error) {
     throw error;
   }
-};
-
-// Apply the proxy middleware
-export const applyProxyMiddleware = (app) => {
-  app.use('/api', proxy);
 };

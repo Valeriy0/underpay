@@ -19,8 +19,8 @@ export const Product = () => {
 
     return (
         <BaseLayout className='space-y-[2rem]'>
-            <Info {...data?.data} />
-            <List list={data?.data?.mooGoldItems} />
+            <Info {...data?.data} isLoading={isLoading} />
+            <List list={data?.data?.mooGoldItems} isLoading={isLoading} />
         </BaseLayout>
     )
 }

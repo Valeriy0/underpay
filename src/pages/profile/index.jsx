@@ -15,8 +15,8 @@ export const Profile = () => {
 
     return (
         <BaseLayout withMenu className="px-[1.6rem]">
-            <Info {...data?.data?.user?.telegramAccount} />
-            <Balance balance={data?.data?.user?.balanceUsd || 0} />
+            <Info {...data?.data?.user?.telegramAccount} isLoading={isLoading} />
+            <Balance balance={data?.data?.user?.balanceUsd || 0} isLoading={isLoading} />
             <Menu />
         </BaseLayout>
     )

@@ -24,7 +24,7 @@ export const Catalog = () => {
 
     return (
         <BaseLayout withMenu>
-            <Tabs choosedCategoryId={choosedCategoryId} setSearchParams={setSearchParams} list={dataCategory?.data} />
+            <Tabs choosedCategoryId={choosedCategoryId} setSearchParams={setSearchParams} list={dataCategory?.data} isLoading={isLoading} />
             <List choosedCategoryId={choosedCategoryId} />
         </BaseLayout>
     )

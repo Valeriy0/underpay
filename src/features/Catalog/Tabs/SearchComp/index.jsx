@@ -35,7 +35,7 @@ export const Search = ({ isOpened, setIsOpened }) => {
     return (
         <div onClick={() => setIsOpened(true)} className={`cursor-pointer flex-shrink-0 h-[4.8rem] px-[2rem] flex items-center justify-start bg-onBg rounded-[3.2rem] w-[6.4rem] ${isOpened ? '!w-full' : ''} `}>
             <img className="w-[2.4rem] h-[2.4rem]" src="/icons/search.svg" alt="" />
-            {isOpened && <input className="pl-2.5 py-3 h-full w-full bg-transparent outline-none" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />}
+            {isOpened && <input className="pl-2.5 py-3 h-full w-full bg-transparent outline-none" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Поиск..." />}
         </div>
     )
 }

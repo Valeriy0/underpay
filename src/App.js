@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RoutesFind } from "./RoutesFind";
 import './style.scss';
-import { useInitData, SDKProvider } from "@tma.js/sdk-react";
+import { useInitData, isTMA } from "@tma.js/sdk-react";
 
-
-function App() {
+export function TelegramApp() {
   const initData = useInitData();
+  const isTelegramApp = isTMA();
 
-  useEffect(() => {
-    if (initData && initData.init) {
+  React.useEffect(() => {
+    if (isTelegramApp && initData && initData.init) {
       initData.init();
     }
-  }, [initData]);
+  }, [initData, isTelegramApp]);
 
-  return (
-    <SDKProvider>
-      <RoutesFind />
-    </SDKProvider>
-  );
+  return <RoutesFind />;
+}
+
+function App() {
+  return <RoutesFind />;
 }
 
 export default App;

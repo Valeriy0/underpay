@@ -9,7 +9,7 @@ import { CategoriesRepository } from "../../connectors/repositories/categories";
 
 export const Main = () => {
     const { call, data } = useRequest(UserRepository.getBanners);
-    const { call: callCategories, data: dataCategories } = useRequest(CategoriesRepository.getCategories, [{ isMain: true }]);
+    const { call: callCategories, data: dataCategories, isLoading: isLoadingCategories } = useRequest(CategoriesRepository.getCategories, [{ isMain: true }]);
 
     useEffect(() => {
         call();
@@ -20,7 +20,7 @@ export const Main = () => {
         <BaseLayout withMenu className="space-y-[2rem]">
             <Slider />
             <div className="flex flex-col px-[0.8rem] w-full space-y-[2rem]">
-                <MainCategories list={dataCategories?.data} />
+                <MainCategories list={dataCategories?.data} isLoading={isLoadingCategories} />
                 <PopularList />
             </div>
         </BaseLayout>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { RoutesFind } from "./RoutesFind";
 import './style.scss';
-import { useInitData } from "@tma.js/sdk-react";
+import { useInitData, SDKProvider } from "@tma.js/sdk-react";
 
 
 function App() {
@@ -14,7 +14,9 @@ function App() {
   }, [initData]);
 
   return (
-    <RoutesFind />
+    <SDKProvider>
+      <RoutesFind />
+    </SDKProvider>
   );
 }
 

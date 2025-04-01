@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const pageVariants = {
   initial: {
     opacity: 0,
-    y: 20
+    y: -100
   },
   animate: {
     opacity: 1,
@@ -12,14 +12,15 @@ const pageVariants = {
   },
   exit: {
     opacity: 0,
-    y: -20
+    y: -100
   }
 };
 
 const pageTransition = {
-  type: "tween",
-  ease: "anticipate",
-  duration: 0.3
+  type: "spring",
+  stiffness: 77,
+  damping: 30,
+  mass: 1.1
 };
 
 export const PageTransition = ({ children }) => {
@@ -30,6 +31,7 @@ export const PageTransition = ({ children }) => {
       exit="exit"
       variants={pageVariants}
       transition={pageTransition}
+      className="w-full h-full"
     >
       {children}
     </motion.div>

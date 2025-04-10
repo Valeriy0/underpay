@@ -9,7 +9,7 @@ export const Info = ({ firstName = '', lastName = '', username = '', photoUrl = 
         backgroundSize: 'cover',
       };
 
-    if (!isLoading) {
+    if (isLoading) {
         return (
             <div className="flex flex-col items-center justify-center space-y-[1.2rem] pt-[3.6rem] mb-[2rem]">
                 <div className="rounded-full h-[10rem] w-[10rem] bg-white/20 animate-pulse" />

@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Balance = ({ balance, isLoading }) => {
-    if (!isLoading) {
+    if (isLoading) {
         return (
             <div className="rounded-[3.2rem] w-full bg-onBg flex flex-col items-center justify-center space-y-[1.2rem] p-[1.2rem] mb-[1.6rem]">
                 <div className="h-[3.2rem] w-[12rem] bg-white/10 rounded-full animate-pulse" />

@@ -5,20 +5,30 @@ import { List } from "../../features/Cart/List";
 import { PaymentsRepository } from "../../connectors/repositories/payments";
 import { useRequest } from "../../helpers/hooks/useRequest";
 
+const STATUSES = [{
+    id: 1,
+    type: 'pending',
+    name: 'Ожидает оплаты',
+}, {
+    id: 2,
+    type: 'completed',
+    name: 'Завершено',
+}]
+
 export const Cart = () => {
-    const [currentTab, setCurrentTab] = useState('pending');
+    const [currentStatus, setCurrentStatus] = useState(STATUSES[0]);
     const { data, call, isLoading } = useRequest(PaymentsRepository.getHistory);
 
     useEffect(() => {
-        if (currentTab) {
-            call();
+        if (currentStatus) {
+            call([{ status: currentStatus.type }]);
         }
-    }, [currentTab])
+    }, [currentStatus])
 
     return (
         <BaseLayout withMenu>
-            <Tabs />
-            <List />
+            <Tabs currentStatus={currentStatus} statuses={STATUSES} setCurrentStatus={setCurrentStatus} />
+            <List data={data?.data?.payments} isLoading={isLoading} />
         </BaseLayout>
     )
 }

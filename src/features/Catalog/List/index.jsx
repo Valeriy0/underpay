@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Item } from "./Item";
-import { useRequest } from "../../../helpers/hooks/useRequest";
-import { ProductsRepository } from "../../../connectors/repositories/product";
 
 const ItemSkeleton = () => {
     return (
@@ -15,19 +13,7 @@ const ItemSkeleton = () => {
     );
 };
 
-export const List = ({ choosedCategoryId }) => {
-    const [page, setPage] = useState(0);
-    const { data, call, isLoading, resetData } = useRequest(ProductsRepository.getProducts);
-
-    useEffect(() => {
-        resetData();
-        if (choosedCategoryId) {
-            call([{ page: page, categoryId: choosedCategoryId }])
-        } else {
-            call([{ page: page }]);
-        }
-    }, [page, choosedCategoryId])
-
+export const List = ({ data, isLoading }) => {
     return (
         <div className="w-full grid grid-cols-2 gap-x-[0.8rem] gap-y-[2.4rem] px-[0.8rem] overflow-y-auto invisible-scrollbar pb-[2.4rem]">
             {isLoading ? (
@@ -42,7 +28,7 @@ export const List = ({ choosedCategoryId }) => {
                     <ItemSkeleton />
                 </>
             ) : (
-                data?.data?.products?.map((item, itemIndex) => (
+                data?.map((item, itemIndex) => (
                     <Item {...item} key={itemIndex} />
                 ))
             )}

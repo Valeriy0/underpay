@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { TAB_MENU } from "../../../helpers/menu";
 import { Search } from "./SearchComp";
 
 export const Tabs = ({ setSearchParams, list, isLoading }) => {
-    const [choosed, setChoosed] = useState(TAB_MENU[0]?.title);
+    const [choosedId, setChoosedId] = useState(null);
     const [isOpenedSearch, setIsOpenedSearch] = useState(false);
 
-    const chooseTab = (tab) => {
-        setSearchParams((params) => {
-            params.set('categoryId', tab?.id);
-            return params;
-        });
-        setChoosed(tab?.name)
+    const toggleTab = (tabId) => {
+        if (choosedId === tabId) {
+            setSearchParams((params) => {
+                params.delete('categoryId');
+                return params;
+            }); 
+            setChoosedId(null)
+        } else {
+            setSearchParams((params) => {
+                params.set('categoryId', tabId);
+                    return params;
+            }); 
+            setChoosedId(tabId)
+        }
     }
 
     const renderPlaceholders = () => {
@@ -33,9 +40,10 @@ export const Tabs = ({ setSearchParams, list, isLoading }) => {
                 renderPlaceholders()
             ) : (
                 !isOpenedSearch && !!list && list?.map((item, itemList) => {
-                    const isChoosed = choosed === item?.title;
+                    const isChoosed = choosedId === item?.id;
+
                     return (
-                        <button onClick={() => chooseTab(item)} className={`whitespace-nowrap h-[4.8rem] flex items-center justify-center px-[2rem] space-x-[0.8rem] rounded-[3.2rem] ${isChoosed ? 'bg-white text-[#101010]' : 'bg-onBg text-white'}`} key={itemList}>
+                        <button onClick={() => toggleTab(item?.id)} className={`whitespace-nowrap h-[4.8rem] flex items-center justify-center px-[2rem] space-x-[0.8rem] rounded-[3.2rem] hover:opacity-50 ${isChoosed ? 'bg-white text-[#101010]' : 'bg-onBg text-white'}`} key={itemList}>
                             {!!item?.imageUrl && (
                                 <div 
                                     className="h-[2.4rem] w-[2.4rem] rounded-full" 

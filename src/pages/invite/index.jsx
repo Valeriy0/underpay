@@ -12,7 +12,7 @@ export const Invite = () => {
            </div>
            <Reflink />
            <FrensList />
-           <button className="bg-[#C6FE22] w-full rounded-[3.2rem] py-[2.4rem] px-[3.6rem]">
+           <button className="bg-[#C6FE22] w-full rounded-[3.2rem] py-[2.4rem] px-[3.6rem] hover:opacity-50">
             <span className="text-[#101010] text-[1.6rem] font-medium">Поделиться</span>
            </button>
         </BaseLayout>

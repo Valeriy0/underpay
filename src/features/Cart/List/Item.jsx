@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Item = ({ amountUsd }) => {
+export const Item = ({ id, amountUsd }) => {
     return (
-        <Link to={'/buy'} className="flex items-center justify-between w-full space-x-[1.2rem] p-[1.2rem] bg-onBg rounded-[3.2rem] hover:opacity-80">
+        <Link to={`/buy?orderId=${id}`} className="flex items-center justify-between w-full space-x-[1.2rem] p-[1.2rem] bg-onBg rounded-[3.2rem] hover:opacity-50">
             <div className="flex items-center justify-start space-x-[1.2rem]">
                 <div className="h-[6rem] w-[6rem] flex items-center justify-center bg-lightBg rounded-full">
                     <img className="h-[4rem]" src='/images/mockImages/cartItem.png' alt="" />

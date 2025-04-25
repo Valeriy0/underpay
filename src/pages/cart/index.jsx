@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { BaseLayout } from "../../layouts/BaseLayout";
 import { Tabs } from "../../features/Cart/Tabs";
 import { List } from "../../features/Cart/List";
@@ -21,14 +22,21 @@ export const Cart = () => {
 
     useEffect(() => {
         if (currentStatus) {
-            call([{ status: currentStatus.type }]);
+            call([{ status: currentStatus.id }]);
         }
     }, [currentStatus])
 
     return (
         <BaseLayout withMenu>
             <Tabs currentStatus={currentStatus} statuses={STATUSES} setCurrentStatus={setCurrentStatus} />
-            <List data={data?.data?.payments} isLoading={isLoading} />
+            <motion.div
+                className="w-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <List data={data?.data?.payments} isLoading={isLoading} />
+            </motion.div>
         </BaseLayout>
     )
 }

@@ -6,4 +6,4 @@ class Repository extends BaseRepository {
   getProductsWithCategory = (categoryId, params) => requestApi('get', `${this.path}/category/${categoryId}`, params);
 }
 
-export const ProductsRepository = new Repository('/products');
+export const ProductsRepository = new Repository('/product');

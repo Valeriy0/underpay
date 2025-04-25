@@ -73,7 +73,7 @@ export const Slider = () => {
                             style={{ display: itemIndex === currentSlide ? 'block' : 'none' }}
                         >
                             <img
-                                src={item?.bannerImageUrl}
+                                src={item?.imageUrl}
                                 alt={item?.bannerAltText || ""}
                                 className="w-full h-full object-cover object-center" 
                             />

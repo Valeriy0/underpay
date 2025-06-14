@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Item } from "./Item";
 import { useRequest } from "../../../helpers/hooks/useRequest";
-import { PopularProductsRepository } from "../../../connectors/repositories/popular-products";
+import { ProductsRepository } from "../../../connectors/repositories/product";
 
 const ItemSkeleton = () => (
     <div className="relative flex-shrink-0 w-[14rem] flex flex-col justify-start h-full">
@@ -13,7 +13,7 @@ const ItemSkeleton = () => (
 );
 
 export const PopularList = () => {
-    const { call, data, isLoading } = useRequest(PopularProductsRepository.getPopularProducts, [{page: 0}]);
+    const { call, data, isLoading } = useRequest(ProductsRepository.getProducts, [{isPopular: true, page: 0}]);
     
     useEffect(() => {
         call();
@@ -37,8 +37,8 @@ export const PopularList = () => {
                     <ItemSkeleton />
                 </>
             ) : (
-                data?.data?.popularProducts.map((item, itemIndex) => (
-                    <Item {...item?.product} key={itemIndex} />
+                !!data && data?.data?.products.map((item, itemIndex) => (
+                    <Item {...item} key={itemIndex} />
                 ))
             )}
         </div>

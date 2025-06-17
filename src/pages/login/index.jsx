@@ -23,9 +23,9 @@ export const Login = () => {
   }, [searchParams])
     
     const onAuth = async () => {
-      // if (await isTMA()) {
-        // const initData = retrieveLaunchParams();  
-        // console.log(initData);
+      if (await isTMA()) {
+        const initData = retrieveLaunchParams();  
+        console.log(initData);
         try {
           setIsLoading(true);
           const response = await axios.post(config.apiUrl + '/telegram/auth');
@@ -42,7 +42,7 @@ export const Login = () => {
         } finally {
           setIsLoading(false);
         }
-      // }
+      }
     }
 
     return (

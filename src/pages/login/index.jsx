@@ -28,7 +28,7 @@ export const Login = () => {
         console.log(initData);
         try {
           setIsLoading(true);
-          const response = await axios.post(config.apiUrl + '/telegram/auth');
+          const response = await axios.post(config.apiUrl + '/telegram/auth', JSON.stringify(initData));
 
           if (response.data) {
             setCookie(null, 'apiToken', response.data.data.jwtToken, {
